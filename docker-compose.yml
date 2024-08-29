@@ -1,0 +1,9 @@
+services:
+  remix-app:
+    image: remix-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - path: ./.env
+        required: true

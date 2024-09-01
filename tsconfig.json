@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "include": [
     "**/*.ts",
     "**/*.tsx",
@@ -7,26 +8,41 @@
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx"
   ],
+  // Ref: https://www.totaltypescript.com/tsconfig-cheat-sheet
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@remix-run/node", "vite/client"],
-    "isolatedModules": true,
+    // Base Options:
     "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "target": "ES2022",
-    "strict": true,
-    "allowJs": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
+    "target": "es2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    // Strictness
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    // Because NOT transpiling with TypeScript:
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+
+    // For the code runs in the DOM:
+    "lib": ["es2022", "dom", "dom.iterable"],
+
+    // Relative path
     "paths": {
       "@/*": ["./app/*"]
     },
 
-    // Vite takes care of building everything, not tsc.
-    "noEmit": true
+    // Additional
+    "types": ["@remix-run/node", "vite/client", "vitest/globals"],
+    "jsx": "react-jsx",
+
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "."
   }
 }

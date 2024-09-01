@@ -20,10 +20,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - run: |
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
       - name: Check something
         run: |
           echo "$GITHUB_BASE_REF"
-          git diff --name-only origin/$GITHUB_BASE_REF HEAD
+          echo "$(git diff --name-only origin/$GITHUB_BASE_REF HEAD)"
 
       - name: get changed files
         id: getfile

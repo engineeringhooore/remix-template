@@ -33,9 +33,9 @@ jobs:
         run: |
           echo ${{ steps.getfile.outputs.files }}
 
-      - name: Check something 2
-        run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
+      # - name: Check something 2
+      #   run: |
+      #     git diff --name-only ${{ github.event.before }} ${{ github.sha }}
 
       - name: Check something 3
         run: |

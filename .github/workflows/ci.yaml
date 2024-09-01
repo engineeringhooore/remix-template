@@ -23,6 +23,7 @@ jobs:
       - name: Check something
         run: |
           echo "$GITHUB_BASE_REF"
+          git diff --name-only origin/$GITHUB_BASE_REF HEAD
 
       - name: get changed files
         id: getfile
@@ -32,14 +33,6 @@ jobs:
       - name: echo output
         run: |
           echo ${{ steps.getfile.outputs.files }}
-
-      # - name: Check something 2
-      #   run: |
-      #     git diff --name-only ${{ github.event.before }} ${{ github.sha }}
-
-      - name: Check something 3
-        run: |
-          git diff --name-only ${{ github.base_ref}} ${{ github.sha }}
 
   #     - name: Install pnpm
   #       uses: pnpm/action-setup@v4

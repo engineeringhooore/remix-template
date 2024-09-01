@@ -128,7 +128,7 @@ jobs:
       - name: Component test
         run: |
           git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
-          pnpm run test:related:coverage $(git diff --name-only $GITHUB_BASE_REF)
+          pnpm run test:related:coverage $(git diff --name-only origin/$GITHUB_BASE_REF)
 
   e2e-test:
     name: End-to-End test

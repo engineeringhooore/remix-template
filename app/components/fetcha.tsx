@@ -79,11 +79,7 @@ export default function Fetch({ url }: FetchProps) {
 
   return (
     <div>
-      <button
-        data-testid="foo"
-        onClick={() => fetchGreeting(url)}
-        disabled={buttonClicked}
-      >
+      <button onClick={() => fetchGreeting(url)} disabled={buttonClicked}>
         {buttonText}
       </button>
       {greeting && <h1>{greeting}</h1>}

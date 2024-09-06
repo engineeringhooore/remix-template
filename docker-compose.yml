@@ -7,3 +7,5 @@ services:
     env_file:
       - path: ./.env
         required: true
+    ports:
+      - "${PORT}:${PORT}"

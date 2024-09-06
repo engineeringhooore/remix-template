@@ -60,4 +60,9 @@ ADD . .
 
 USER remix
 
+ENV PORT=${PORT}
+ENV HOSTNAME=${HOSTNAME} 
+
+EXPOSE ${PORT}
+
 CMD ["npm", "start"]

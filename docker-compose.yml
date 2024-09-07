@@ -1,6 +1,6 @@
 services:
-  remix-app:
-    image: remix-app
+  remix-template:
+    image: remix-template
     build:
       context: .
       dockerfile: Dockerfile

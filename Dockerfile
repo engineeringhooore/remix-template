@@ -2,7 +2,7 @@
 FROM node:22.7.0-alpine3.19 AS base
 
 # set for base and all layer that inherit from it
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Install openssl for Prisma
 RUN apk update && apk add openssl
@@ -59,9 +59,6 @@ COPY --from=build /app/public /app/public
 ADD . .
 
 USER remix
-
-ENV PORT=${PORT}
-ENV HOSTNAME=${HOSTNAME} 
 
 EXPOSE ${PORT}
 

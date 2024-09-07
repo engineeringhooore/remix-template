@@ -60,6 +60,7 @@ ADD . .
 
 USER remix
 
+ARG PORT=3000
 EXPOSE ${PORT}
 
 CMD ["npm", "start"]
